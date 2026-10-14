@@ -80,7 +80,7 @@ def wait_download_file(download_dir=None, filename_pattern=None, timeout=300, st
             time.sleep(interval)
             continue
 
-        files = [p for p in download_dir.iterdir() if p.is_file()]
+        files = [p for p in download_dir.iterdir() if p.is_file() and not p.name.startswith("~$")]
         candidates = []
 
         if filename_pattern:
